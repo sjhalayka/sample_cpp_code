@@ -2,7 +2,7 @@
 //    using C++?
 
 // Q: How do I enable compiler support for
-//    the C++17 or C++20 standard in Visual Studio?
+//    the C++17 standard in Visual Studio?
 
 
 #include <iostream>
@@ -10,9 +10,9 @@ using std::cout;
 using std::endl;
 
 // You may need to manually enable compiler support
-// for the C++17 or C++20 standards when using certain
-// functionality like std::filesystem. To do this, add
-// "/std:c++17" or " /std:c++20" to the compiler 
+// for the C++17 standard when using certain
+// functionality like std::filesystem. To do this in
+// Visual Studio, add "/std:c++17" to the compiler 
 // command line parameters
 #include <filesystem>
 using std::filesystem::current_path;
