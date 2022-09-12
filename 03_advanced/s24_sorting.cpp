@@ -28,7 +28,7 @@ using std::sort;
 class A
 {
 public:
-	float x, y;
+	float x = 0, y = 0;
 
 	// Less-than operator must be defined,
 	// for sort()
@@ -72,13 +72,8 @@ void counting_sort(const vector<T>& input_data, vector<T>& output_data)
 	size_t index = 0;
 
 	for (auto const ci : m)
-	{
-		const T number = ci.first;
-		const size_t count = ci.second;
-
-		for (size_t i = 0; i < count; i++)
-			output_data[index++] = number;
-	}
+		for (size_t i = 0; i < ci.second; i++)
+			output_data[index++] = ci.first;
 }
 
 
@@ -90,7 +85,7 @@ int main(void)
 	uniform_real_distribution<float> distribution(0, 1);
     // uniform_int_distribution<size_t> distribution(0, 100);
 
-	const size_t num_elements = 10000000;
+	const size_t num_elements = 1000000;
 
 	vector<A> input_data(num_elements);
 
@@ -103,8 +98,9 @@ int main(void)
 		input_data[i] = a;
 	}
 
-	vector<A> output_data;
 
+
+	vector<A> output_data;
 
 	// Use the counting sort method
 	high_resolution_clock::time_point start_time = high_resolution_clock::now();
@@ -127,6 +123,7 @@ int main(void)
 	end_time = high_resolution_clock::now();
 	elapsed = end_time - start_time;
 	cout << "Took " << elapsed.count() / 1000.0f << " seconds" << endl;
+
 
 
 	// Make sure that the sorted vectors are equal
