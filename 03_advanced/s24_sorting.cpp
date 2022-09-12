@@ -30,8 +30,8 @@ class A
 public:
 	float x = 0, y = 0;
 
-	// Less-than operator must be defined,
-	// for sort()
+	// Less-than operator must be overloaded
+	// for sort() to work
 	bool operator<(const A& right) const
 	{
 		if (right.x > x)
