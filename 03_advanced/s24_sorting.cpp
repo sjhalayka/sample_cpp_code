@@ -88,7 +88,7 @@ int main(void)
 	
 
 
-	cout << "Testing float sorting" << endl;
+	cout << "Testing A sorting" << endl;
 	
 	uniform_real_distribution<float> distribution(0, 1);
 
