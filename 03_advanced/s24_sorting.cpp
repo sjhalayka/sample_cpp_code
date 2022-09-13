@@ -62,13 +62,16 @@ public:
 template<typename T>
 void counting_sort(const vector<T>& input_data, vector<T>& output_data)
 {
+	// Count how many times that each input number is used
 	map<T, size_t> m;
 
 	for (size_t i = 0; i < input_data.size(); i++)
 		m[input_data[i]]++;
 
+	// Allocate necessary memory
 	output_data.resize(input_data.size());
 
+	// Write to output
 	size_t index = 0;
 
 	for (auto const ci : m)
@@ -80,10 +83,14 @@ void counting_sort(const vector<T>& input_data, vector<T>& output_data)
 
 int main(void)
 {
-	// Generate some random data
+	// Let's generate some pseudorandom data
 	mt19937 generator(123456789);
+	
+
+
+	cout << "Testing float sorting" << endl;
+	
 	uniform_real_distribution<float> distribution(0, 1);
-    // uniform_int_distribution<size_t> distribution(0, 100);
 
 	const size_t num_elements = 1000000;
 
@@ -98,8 +105,6 @@ int main(void)
 		input_data[i] = a;
 	}
 
-
-
 	vector<A> output_data;
 
 	// Use the counting sort method
@@ -110,8 +115,6 @@ int main(void)
 	high_resolution_clock::time_point end_time = high_resolution_clock::now();
 	std::chrono::duration<float, std::milli> elapsed = end_time - start_time;
 	cout << "Took " << elapsed.count() / 1000.0f << " seconds" << endl;
-
-
 
 	// Use the standard sort function
 	vector<A> input_data2 = input_data;
@@ -124,10 +127,44 @@ int main(void)
 	elapsed = end_time - start_time;
 	cout << "Took " << elapsed.count() / 1000.0f << " seconds" << endl;
 
-
-
 	// Make sure that the sorted vectors are equal
 	cout << (input_data2 == output_data) << endl;
+
+
+
+	cout << "Testing unsigned short int sorting" << endl;
+
+	uniform_int_distribution<unsigned short int> short_distribution(0, -1);
+
+	vector<unsigned short int> input_data_short(num_elements);
+
+	for (size_t i = 0; i < num_elements; i++)
+		input_data_short[i] = short_distribution(generator);
+
+	vector<unsigned short int> output_data_short;
+
+	// Use the counting sort method
+	start_time = high_resolution_clock::now();
+
+	counting_sort<unsigned short int>(input_data_short, output_data_short);
+
+	end_time = high_resolution_clock::now();
+	elapsed = end_time - start_time;
+	cout << "Took " << elapsed.count() / 1000.0f << " seconds" << endl;
+
+	// Use the standard sort function
+	vector<unsigned short int> input_data_short2 = input_data_short;
+
+	start_time = high_resolution_clock::now();
+
+	sort(input_data_short2.begin(), input_data_short2.end());
+
+	end_time = high_resolution_clock::now();
+	elapsed = end_time - start_time;
+	cout << "Took " << elapsed.count() / 1000.0f << " seconds" << endl;
+
+	// Make sure that the sorted vectors are equal
+	cout << (input_data_short2 == output_data_short) << endl;
 
 	return 0;
 }
