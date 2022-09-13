@@ -57,6 +57,29 @@ public:
 
 
 
+// One may also overload the operator outside of the class
+//bool operator<(const vertex_3 &lhs, const vertex_3 &rhs)
+//{
+//	if (rhs.x > lhs.x)
+//		return true;
+//	else if (rhs.x < lhs.x)
+//		return false;
+//
+//	if (rhs.y > lhs.y)
+//		return true;
+//	else if (rhs.y < lhs.y)
+//		return false;
+//
+//	if (rhs.z > lhs.z)
+//		return true;
+//	else if (rhs.z < lhs.	z)
+//		return false;
+//
+//	return false;
+//}
+
+
+
 int main(void)
 {
 	// Use an ordered set
