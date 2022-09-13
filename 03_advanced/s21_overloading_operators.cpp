@@ -72,7 +72,7 @@ public:
 //
 //	if (rhs.z > lhs.z)
 //		return true;
-//	else if (rhs.z < lhs.	z)
+//	else if (rhs.z < lhs.z)
 //		return false;
 //
 //	return false;
