@@ -74,7 +74,13 @@ bool operator<(const vertex_3 &lhs, const vertex_3 &rhs)
 // and perform the cross product
 vertex_3 operator*(const vertex_3 &lhs, const float rhs)
 {
-	return lhs.cross(vertex_3(rhs, 0, 0));
+	static vertex_3 temp;
+
+	temp.x = lhs.x * rhs;
+	temp.y = lhs.y * rhs;
+	temp.z = lhs.z * rhs;
+
+	return temp;
 }
 
 // Overload the multiplication operator again
