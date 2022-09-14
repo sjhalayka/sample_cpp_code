@@ -69,9 +69,6 @@ bool operator<(const vertex_3 &lhs, const vertex_3 &rhs)
 }
 
 // Overload the multiplication operator
-// A vector times a scalar is not allowed
-// so we convert the scalar to a vector
-// and perform the cross product
 vertex_3 operator*(const vertex_3 &lhs, const float rhs)
 {
 	static vertex_3 temp;
@@ -84,7 +81,6 @@ vertex_3 operator*(const vertex_3 &lhs, const float rhs)
 }
 
 // Overload the multiplication operator again
-// A scalar times a vector is allowed
 // NOTE: This would not be possible if this operator
 //       overloading was done inside of the class body!!!
 vertex_3 operator*(const float lhs, const vertex_3& rhs)
@@ -122,9 +118,6 @@ int main(void)
 
 
 	// Use the overloaded multiplication operators
-	// This can only be achieved by moving the 
-	// operators to outside of the class body, like
-	// we have done above
 	vertex_3 v(1, 2, 3);
 
 	vertex_3 two_times_v = 2.0f * v;
