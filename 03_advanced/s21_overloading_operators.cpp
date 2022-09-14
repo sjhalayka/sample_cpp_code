@@ -1,5 +1,7 @@
 // Q: How do I use custom data types in 
 //    conjunction with map or set?
+// Q: How do I overload the mathematical
+//    operators, such as multiplication?
 
 #include <iostream>
 using std::cout;
@@ -77,6 +79,8 @@ vertex_3 operator*(const vertex_3 &lhs, const float rhs)
 
 // Overload the multiplication operator again
 // A scalar times a vector is allowed
+// NOTE: This would not be possible if this operator
+//       overloading was done inside of the class body!!!
 vertex_3 operator*(const float lhs, const vertex_3& rhs)
 {
 	static vertex_3 temp;
@@ -93,8 +97,7 @@ vertex_3 operator*(const float lhs, const vertex_3& rhs)
 int main(void)
 {
 	// Use an ordered set
-	// Essentially, a set gives you a sorted container of distinct data,
-	// For instance, this is handy for welding vertices in a triangle mesh
+	// Essentially, a set gives you a sorted container of distinct data
 	set<vertex_3> s;
 
 	s.insert(vertex_3(1, 2, 3));
