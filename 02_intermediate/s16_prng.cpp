@@ -1,5 +1,7 @@
 // Q: How do I use the pseudorandom number
 //    generation capabilities of C++?
+// Q: How do I use the complex class and
+//    its related functionality?
 
 #include <iostream>
 using std::cout;
