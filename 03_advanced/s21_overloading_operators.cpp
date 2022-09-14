@@ -23,13 +23,29 @@ using std::set;
 
 class vertex_3
 {
-public:
+protected:
 
 	float x, y, z;
+
+public:
 
 	// Some constructors
 	vertex_3(void) : x(0.0f), y(0.0f), z(0.0f) { /*default constructor*/ }
 	vertex_3(const float src_x, const float src_y, const float src_z) : x(src_x), y(src_y), z(src_z) { /* custom constructor */ }
+
+	// Getters and setters
+	float get_x(void) const { return x; }
+	float get_y(void) const { return y; }
+	float get_z(void) const { return z; }
+	void set_x(const float src_x) { x = src_x; }
+	void set_y(const float src_y) { y = src_y; }
+	void set_z(const float src_z) { z = src_z; }
+
+	// These are the friend functions that we will use to define
+	// the operator overloads from outside of the class body
+	friend bool operator<(const vertex_3& lhs, const vertex_3& rhs);
+	friend vertex_3 operator*(const vertex_3& lhs, const float rhs);
+	friend vertex_3 operator*(const float lhs, const vertex_3& rhs);
 };
 
 
@@ -71,7 +87,7 @@ vertex_3 operator*(const vertex_3 &lhs, const float rhs)
 
 // Overload the multiplication operator again
 // NOTE: This would not be possible if this operator
-//       overloading was done inside of the class body!!!
+//       overloading was done inside of the class body!
 vertex_3 operator*(const float lhs, const vertex_3& rhs)
 {
 	static vertex_3 temp;
@@ -102,7 +118,7 @@ int main(void)
 
 	// Print elements in order
 	for (set<vertex_3>::const_iterator ci = s.begin(); ci != s.end(); ci++)
-		cout << ci->x << " " << ci->y << " " << ci->z << endl;
+		cout << ci->get_x() << " " << ci->get_y() << " " << ci->get_z() << endl;
 
 
 
@@ -112,8 +128,8 @@ int main(void)
 	vertex_3 two_times_v = 2.0f * v;
 	vertex_3 v_times_two = v * 2.0f;
 	
-	cout << two_times_v.x << ' ' << two_times_v.y << ' ' << two_times_v.z << endl;
-	cout << v_times_two.x << ' ' << v_times_two.y << ' ' << v_times_two.z << endl;
+	cout << two_times_v.get_x() << ' ' << two_times_v.get_y() << ' ' << two_times_v.get_z() << endl;
+	cout << v_times_two.get_x() << ' ' << v_times_two.get_y() << ' ' << v_times_two.get_z() << endl;
 
 	return 0;
 }
