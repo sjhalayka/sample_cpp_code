@@ -67,15 +67,25 @@ bool operator<(const vertex_3 &lhs, const vertex_3 &rhs)
 }
 
 // Overload the multiplication operator
+// A vector times a scalar is not allowed
+// so we convert the scalar to a vector
+// and perform the cross product
 vertex_3 operator*(const vertex_3 &lhs, const float rhs)
 {
 	return lhs.cross(vertex_3(rhs, 0, 0));
 }
 
 // Overload the multiplication operator again
+// A scalar times a vector is allowed
 vertex_3 operator*(const float lhs, const vertex_3& rhs)
 {
-	return vertex_3(lhs, 0, 0).cross(rhs);
+	static vertex_3 temp;
+
+	temp.x = lhs * rhs.x;
+	temp.y = lhs * rhs.y;
+	temp.z = lhs * rhs.z;
+
+	return temp;
 }
 
 
