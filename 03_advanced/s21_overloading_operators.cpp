@@ -30,17 +30,6 @@ public:
 	// Some constructors
 	vertex_3(void) : x(0.0f), y(0.0f), z(0.0f) { /*default constructor*/ }
 	vertex_3(const float src_x, const float src_y, const float src_z) : x(src_x), y(src_y), z(src_z) { /* custom constructor */ }
-
-	inline const vertex_3& cross(const vertex_3& right) const
-	{
-		static vertex_3 temp;
-
-		temp.x = y * right.z - z * right.y;
-		temp.y = z * right.x - x * right.z;
-		temp.z = x * right.y - y * right.x;
-
-		return temp;
-	}
 };
 
 
