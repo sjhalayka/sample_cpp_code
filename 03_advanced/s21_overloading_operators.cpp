@@ -75,7 +75,7 @@ vertex_3 operator*(const vertex_3 &lhs, const float rhs)
 // Overload the multiplication operator again
 vertex_3 operator*(const float lhs, const vertex_3& rhs)
 {
-	return rhs.cross(vertex_3(lhs, 0, 0));
+	return vertex_3(lhs, 0, 0).cross(rhs);
 }
 
 
@@ -111,5 +111,8 @@ int main(void)
 	vertex_3 two_times_v = 2.0f * v;
 	vertex_3 v_times_two = v * 2.0f;
 	
+	cout << two_times_v.x << ' ' << two_times_v.y << ' ' << two_times_v.z << endl;
+	cout << v_times_two.x << ' ' << v_times_two.y << ' ' << v_times_two.z << endl;
+
 	return 0;
 }
