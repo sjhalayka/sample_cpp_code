@@ -28,6 +28,17 @@ public:
 	// Some constructors
 	vertex_3(void) : x(0.0f), y(0.0f), z(0.0f) { /*default constructor*/ }
 	vertex_3(const float src_x, const float src_y, const float src_z) : x(src_x), y(src_y), z(src_z) { /* custom constructor */ }
+
+	inline const vertex_3& cross(const vertex_3& right) const
+	{
+		static vertex_3 temp;
+
+		temp.x = y * right.z - z * right.y;
+		temp.y = z * right.x - x * right.z;
+		temp.z = x * right.y - y * right.x;
+
+		return temp;
+	}
 };
 
 
@@ -58,25 +69,13 @@ bool operator<(const vertex_3 &lhs, const vertex_3 &rhs)
 // Overload the multiplication operator
 vertex_3 operator*(const vertex_3 &lhs, const float rhs)
 {
-	static vertex_3 temp;
-
-	temp.x = lhs.x * rhs;
-	temp.y = lhs.y * rhs;
-	temp.z = lhs.z * rhs;
-
-	return temp;
+	return lhs.cross(vertex_3(rhs, 0, 0));
 }
 
 // Overload the multiplication operator again
 vertex_3 operator*(const float lhs, const vertex_3& rhs)
 {
-	static vertex_3 temp;
-
-	temp.x = lhs * rhs.x;
-	temp.y = lhs * rhs.y;
-	temp.z = lhs * rhs.z;
-
-	return temp;
+	return rhs.cross(vertex_3(lhs, 0, 0));
 }
 
 
@@ -108,10 +107,9 @@ int main(void)
 	// operators to outside of the class body, like
 	// we have done above
 	vertex_3 v(1, 2, 3);
+
 	vertex_3 two_times_v = 2.0f * v;
 	vertex_3 v_times_two = v * 2.0f;
-
-
 	
 	return 0;
 }
