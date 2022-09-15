@@ -1,5 +1,6 @@
 // Q: How do I interface the vector<> and string containers
 //    with C-style function with pointer parameters?
+// Q: What is the address-of operator?
 // Q: How do I create an iterator and a const iterator?
 // Q: How do I create a map and a set?
 // Q: How do I use the auto keyword?
@@ -57,6 +58,7 @@ int main(void)
 
 	// Get the address of the array's first element
 	// and pass that in as a pointer
+	// In other words, & is the address-of operator
 	p(&c[0], c.size());
 
 
