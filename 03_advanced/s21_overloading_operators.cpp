@@ -26,6 +26,7 @@ class vertex_3
 {
 protected:
 
+	// Let's protect these, to be a little OOP crazy
 	float x, y, z;
 
 public:
@@ -34,7 +35,7 @@ public:
 	vertex_3(void) : x(0.0f), y(0.0f), z(0.0f) { /*default constructor*/ }
 	vertex_3(const float src_x, const float src_y, const float src_z) : x(src_x), y(src_y), z(src_z) { /* custom constructor */ }
 
-	// Getters and setters
+	// Getters and setters (accessors and mutators)
 	float get_x(void) const { return x; }
 	float get_y(void) const { return y; }
 	float get_z(void) const { return z; }
