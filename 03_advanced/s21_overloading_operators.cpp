@@ -2,6 +2,7 @@
 //    conjunction with map or set?
 // Q: How do I overload the mathematical
 //    operators, such as multiplication?
+// Q: What are friend functions?
 
 #include <iostream>
 using std::cout;
@@ -43,6 +44,8 @@ public:
 
 	// These are the friend functions that we will use to define
 	// the operator overloads from outside of the class body
+	// They must be made friends in order for them to have access
+	// to the protected member variables
 	friend bool operator<(const vertex_3& lhs, const vertex_3& rhs);
 	friend vertex_3 operator*(const vertex_3& lhs, const float rhs);
 	friend vertex_3 operator*(const float lhs, const vertex_3& rhs);
