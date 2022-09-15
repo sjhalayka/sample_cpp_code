@@ -78,7 +78,7 @@ public:
 	{
 		cout << "Allocating " << count << " " << typeid(T).name() << " elements -- " << sizeof(T) * count << " byte(s) of memory" << endl;
 
-		// Use memory management functionality to obtain memory from RAM
+		// Use memory management functionality to allocate memory on the heap
 		// Use malloc(), to avoid wasting time constructing the objects,
 		// because that is not absolutely necessary
 		T* p = reinterpret_cast<T*>(malloc(count * sizeof(T)));
@@ -94,7 +94,7 @@ public:
 	{
 		cout << "Deallocating " << count << " " << typeid(T).name() << " elements -- " << sizeof(T) * count << " byte(s) of memory" << endl;
 
-		// Use memory management functions to release memory from RAM
+		// Use memory management functions to free memory on the heap
 		if (p != nullptr)
 			free(p);
 	}
