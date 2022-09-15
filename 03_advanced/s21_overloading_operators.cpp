@@ -20,6 +20,11 @@ using std::map;
 #include <set>
 using std::set;
 
+// Include the C math library
+#include <cmath>
+using std::isnan;
+using std::isinf;
+
 
 
 class vertex_3
@@ -39,9 +44,9 @@ public:
 	float get_x(void) const { return x; }
 	float get_y(void) const { return y; }
 	float get_z(void) const { return z; }
-	void set_x(const float src_x) { x = src_x; }
-	void set_y(const float src_y) { y = src_y; }
-	void set_z(const float src_z) { z = src_z; }
+	void set_x(const float src_x) { if (false == isnan(x) && false == isinf(x)) x = src_x; }
+	void set_y(const float src_y) { if (false == isnan(y) && false == isinf(y)) y = src_y; }
+	void set_z(const float src_z) { if (false == isnan(z) && false == isinf(z)) z = src_z; }
 
 	// These are the friend functions that we will use to define
 	// the operator overloads from outside of the class body
