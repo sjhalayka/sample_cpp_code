@@ -1,5 +1,6 @@
 // Q: How do I use the pseudorandom number
 //    generation capabilities of C++?
+// Q: How do I generate a truly random number?
 // Q: How do I use the complex class and
 //    its related functionality?
 
@@ -13,14 +14,20 @@ using std::complex;
 #include <random>
 using std::mt19937;
 using std::uniform_real_distribution;
+using std::uniform_int_distribution;
+using std::random_device;
 
 
 
 int main(void)
 {
-	// Seed the pseudorandom number generator
 	// Here we use the Mersenne Twister algorithm
-	mt19937 generator(123456789);
+	// for generating pseudorandom numbers
+	//mt19937 generator(123456789);
+
+	// Here we use a truly random number generator,
+	// if available
+	random_device generator;
 
 	// Define the distribution
 	uniform_real_distribution<float> distribution(0, 1);
