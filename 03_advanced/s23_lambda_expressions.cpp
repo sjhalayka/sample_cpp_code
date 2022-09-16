@@ -65,7 +65,7 @@ int main(void)
 	// of data types, as long the type has
 	// a print() member function.
 	// In other words, auto is a necessary evil
-	auto l = [](const auto& value) { value.print(); };
+	auto l = [](const auto &value) { value.print(); };
 
 
 	A<size_t> as;

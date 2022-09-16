@@ -30,10 +30,7 @@ void std_strtok(const string& s, const string& regex_s, vector<string>& tokens)
 	sregex_token_iterator end;
 
 	while (iter != end)
-	{
-		tokens.push_back(*iter);
-		iter++;
-	}
+		tokens.push_back(*iter++);
 }
 
 
