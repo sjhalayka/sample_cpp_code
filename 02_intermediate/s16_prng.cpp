@@ -46,6 +46,7 @@ int main(void)
 	}
 
 	cout << "pi is approximated as: " << 4.0f * static_cast<float>(within_radius) / static_cast<float>(total) << endl;
+	cout << "pi is actually:        " << 4.0f * atanf(1.0f) << endl;
 
 	return 0;
 }
