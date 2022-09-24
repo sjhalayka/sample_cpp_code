@@ -9,6 +9,9 @@ using std::endl;
 #include <chrono>
 using std::chrono::high_resolution_clock;
 
+#include <functional>
+using std::function;
+
 
 
 void proceed_a(size_t& n)
@@ -104,6 +107,10 @@ int main(void)
 	// Pointer to function example
 	proceed_func_pointer p = &proceed_a;
 	(*p)(param); // Call function
+
+	// Try using std::function instead of a pointer to function
+	function<void(size_t&)> proceed = proceed_a;
+	proceed(param);
 
 
 
