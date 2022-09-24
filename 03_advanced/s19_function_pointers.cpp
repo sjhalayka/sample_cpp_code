@@ -159,12 +159,11 @@ int main(void)
 	cout << "if-else method took took " << elapsed.count() / 1000.0f << " seconds" << endl;
 
 
-
 	// Use function pointer method
-	start_time = high_resolution_clock::now();
-
 	// Use B::proceed_d() to do timing test
 	f2 = &B::proceed_d;
+
+	start_time = high_resolution_clock::now();
 
 	for (size_t i = 0; i < iterations; i++)
 		(*f2)(param); // Call function
@@ -175,7 +174,8 @@ int main(void)
 
 	// NOTE: The function pointer method should
 	//       have taken less time than the if-else
-	//       method
+	//       method. If not, then just add more cases
+	//       to the point where it does become faster
 
 
 
