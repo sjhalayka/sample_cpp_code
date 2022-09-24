@@ -16,22 +16,22 @@ using std::function;
 
 void proceed_a(size_t& n)
 {
-	cout << "proceed_a()" << endl;
+	//cout << "proceed_a()" << endl;
 }
 
 void proceed_b(size_t& n)
 {
-	cout << "proceed_b()" << endl;
+	//cout << "proceed_b()" << endl;
 }
 
 void proceed_c(size_t& n)
 {
-	cout << "proceed_c()" << endl;
+	//cout << "proceed_c()" << endl;
 }
 
 void proceed_d(size_t& n)
 {
-	cout << "proceed_d()" << endl;
+	//cout << "proceed_d()" << endl;
 }
 
 // Function pointer typedef
@@ -176,6 +176,27 @@ int main(void)
 	// NOTE: The function pointer method should
 	//       have taken less time than the if-else
 	//       method
+
+
+
+	// Use proceed_d() to do timing test
+	proceed = proceed_d;
+
+	start_time = high_resolution_clock::now();
+
+	for (size_t i = 0; i < iterations; i++)
+		proceed(param); // Call function
+
+	end_time = high_resolution_clock::now();
+	elapsed = end_time - start_time;
+	cout << "Function<> method took " << elapsed.count() / 1000.0f << " seconds" << endl;
+
+	// NOTE: The function<> method should have taken
+	//       *more* time than the function pointer method
+	//       Use of function<> is not recommended in
+	//       apps that need to be speedy
+
+
 
 	return 0;
 }
