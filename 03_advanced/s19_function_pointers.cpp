@@ -16,22 +16,22 @@ using std::function;
 
 void proceed_a(size_t& n)
 {
-	//cout << "proceed_a()" << endl;
+	n = n + 1;
 }
 
 void proceed_b(size_t& n)
 {
-	//cout << "proceed_b()" << endl;
+	n = n + 2;
 }
 
 void proceed_c(size_t& n)
 {
-	//cout << "proceed_c()" << endl;
+	n = n + 3;
 }
 
 void proceed_d(size_t& n)
 {
-	//cout << "proceed_d()" << endl;
+	n = n + 4;
 }
 
 // Function pointer typedef
@@ -44,22 +44,22 @@ class A
 public:
 	void proceed_a(size_t& n)
 	{
-		cout << "A::proceed_a()" << endl;
+		n = n + 1;
 	}
 
 	void proceed_b(size_t& n)
 	{
-		cout << "A::proceed_b()" << endl;
+		n = n + 2;
 	}
 
 	void proceed_c(size_t& n)
 	{
-		cout << "A::proceed_c()" << endl;
+		n = n + 3;
 	}
 
 	void proceed_d(size_t& n)
 	{
-		cout << "A::proceed_d()" << endl;
+		n = n + 4;
 	}
 
 
@@ -76,22 +76,22 @@ public:
 
 	static void proceed_a(size_t& n)
 	{
-		//cout << "B::proceed_a()" << endl;
+		n = n + 1;
 	}
 
 	static void proceed_b(size_t& n)
 	{
-		//cout << "B::proceed_b()" << endl;
+		n = n + 2;
 	}
 
 	static void proceed_c(size_t& n)
 	{
-		//cout << "B::proceed_c()" << endl;
+		n = n + 3;
 	}
 
 	static void proceed_d(size_t& n)
 	{
-		//cout << "B::proceed_d()" << endl;
+		n = n + 4;
 	}
 };
 
